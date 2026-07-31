@@ -1,16 +1,16 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/Jphilbrick10/Jphilbrick10/main/assets/banner.svg" alt="Josh Philbrick — creator, systems thinker, and founder of Coherence Energy Labs" width="100%">
+<img src="https://raw.githubusercontent.com/Jphilbrick10/Jphilbrick10/main/assets/banner.svg" alt="Josh Philbrick - creator, systems thinker, and founder of Coherence Energy Labs" width="100%">
 
 [![banner re-derives](https://github.com/Jphilbrick10/Jphilbrick10/actions/workflows/verify-banner.yml/badge.svg)](https://github.com/Jphilbrick10/Jphilbrick10/actions/workflows/verify-banner.yml)
 
-*The waves above are computed, not drawn — their amplitudes are the solution of the coherence field equation `(D·L + κ²I)τ = s`
+*The waves above are computed, not drawn - their amplitudes are the solution of the coherence field equation `(D·L + κ²I)τ = s`
 in exact integer arithmetic, rendered by [a program in this repository](tools/render_banner.py). CI re-derives the banner on every push;
 one byte of drift fails the build. Its [receipt](assets/RECEIPT.json) is committed beside it and printed on the artifact itself.*
 
 ### Catch the forgery
 
-Two coherence fingerprints — the same field equation solved on a polar lattice, rendered as counter-rotating interference irises. One is computed from the true field. In the other, a single source was quietly moved. They are twins to the eye; the mathematics is not fooled:
+Two coherence fingerprints - the same field equation solved on a polar lattice, rendered as counter-rotating interference irises. One is computed from the true field. In the other, a single source was quietly moved. They are twins to the eye; the mathematics is not fooled:
 
 <img src="https://raw.githubusercontent.com/Jphilbrick10/Jphilbrick10/main/assets/challenge-a.svg" width="49.7%"><img src="https://raw.githubusercontent.com/Jphilbrick10/Jphilbrick10/main/assets/challenge-b.svg" width="49.7%">
 
