@@ -1,66 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
-  <title id="title">Josh Philbrick — creator, systems thinker, and founder of Coherence Energy Labs</title>
-  <desc id="desc">A dark technical banner with a luminous coherence network, the words Josh Philbrick, and the statement Building systems for questions most people are told are too large to ask.</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#050914"/>
-      <stop offset="0.55" stop-color="#0a1124"/>
-      <stop offset="1" stop-color="#111d36"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="#76e4ff" stop-opacity="0.50"/>
-      <stop offset="0.45" stop-color="#5b8cff" stop-opacity="0.18"/>
-      <stop offset="1" stop-color="#5b8cff" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#76e4ff" stop-opacity="0.08"/>
-      <stop offset="0.5" stop-color="#76e4ff" stop-opacity="0.72"/>
-      <stop offset="1" stop-color="#8b7cff" stop-opacity="0.10"/>
-    </linearGradient>
-    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="12"/>
-    </filter>
-    <filter id="nodeGlow" x="-200%" y="-200%" width="400%" height="400%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
-      <path d="M48 0H0V48" fill="none" stroke="#b8c7ff" stroke-opacity="0.045" stroke-width="1"/>
-    </pattern>
-  </defs>
-
-  <rect width="1200" height="360" rx="24" fill="url(#bg)"/>
-  <rect width="1200" height="360" rx="24" fill="url(#grid)"/>
-  <ellipse cx="932" cy="168" rx="310" ry="250" fill="url(#glow)" filter="url(#soft)"/>
-
-  <g fill="none" stroke="url(#line)" stroke-width="1.5">
-    <path d="M690 80C770 24 844 24 922 86S1068 160 1158 92"/>
-    <path d="M650 170C750 96 844 112 915 177S1061 255 1172 183"/>
-    <path d="M698 270C790 212 853 218 934 276S1080 322 1168 272"/>
-    <path d="M720 44L770 128L862 64L916 176L1002 102L1080 212L1158 138"/>
-    <path d="M684 242L770 128L844 240L916 176L1008 278L1080 212L1170 300"/>
-    <path d="M862 64L844 240M1002 102L1008 278M770 128L916 176L1080 212"/>
-  </g>
-
-  <g fill="#8de8ff" filter="url(#nodeGlow)">
-    <circle cx="770" cy="128" r="4"/>
-    <circle cx="862" cy="64" r="4"/>
-    <circle cx="844" cy="240" r="4"/>
-    <circle cx="916" cy="176" r="7"/>
-    <circle cx="1002" cy="102" r="4"/>
-    <circle cx="1008" cy="278" r="4"/>
-    <circle cx="1080" cy="212" r="4"/>
-    <circle cx="1158" cy="138" r="3"/>
-  </g>
-
-  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">
-    <text x="72" y="82" fill="#80e7ff" font-size="16" font-weight="700" letter-spacing="3.2">CREATOR  ·  SYSTEMS THINKER  ·  FOUNDER</text>
-    <text x="68" y="154" fill="#ffffff" font-size="58" font-weight="780" letter-spacing="-1.8">JOSH PHILBRICK</text>
-    <text x="72" y="205" fill="#c7d4ee" font-size="22" font-weight="430">Founder of Coherence Energy Labs</text>
-    <text x="72" y="258" fill="#eef5ff" font-size="23" font-weight="560">Building systems for questions most people</text>
-    <text x="72" y="290" fill="#eef5ff" font-size="23" font-weight="560">are told are too large to ask.</text>
-    <text x="72" y="330" fill="#7f90ad" font-size="14" font-weight="500" letter-spacing="1.4">PHYSICS  ·  COMPUTATION  ·  BIOLOGY  ·  INTELLIGENCE</text>
-  </g>
-
-  <rect x="0.75" y="0.75" width="1198.5" height="358.5" rx="23.25" fill="none" stroke="#7fa7ff" stroke-opacity="0.22" stroke-width="1.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360" role="img" aria-label="Josh Philbrick - creator, systems thinker, and founder of Coherence Energy Labs">
+<!-- RE-EXECUTABLE FIGURE. Wave amplitudes = solution of (D*L + kappa^2*I) tau = s on a 40x12 lattice, exact integer arithmetic. params: D_milli=1000 k2_milli=45 iters=300 seed=0x1a0501 src=0x100000000000 waves=9. sha256(field)=a5839e753e76481935519d8812719d997735c915a8c5e653341d1f991caba6f7. Re-derive: python tools/render_banner.py -->
+<defs>
+<linearGradient id="w" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1E6E8C"/><stop offset="0.62" stop-color="#4FC3E8"/><stop offset="1" stop-color="#9FE8D8"/></linearGradient>
+</defs>
+<rect width="1200" height="360" fill="#081020"/>
+<g fill="none" stroke="url(#w)" stroke-width="2" stroke-linecap="round">
+<path d="M0 32 Q40 38 60 38 Q80 39 100 35 Q120 32 140 32 Q160 32 180 35 Q200 39 220 39 Q240 39 260 35 Q280 32 300 31 Q320 31 340 35 Q360 40 380 40 Q400 40 420 35 Q440 31 460 30 Q480 30 500 35 Q520 41 540 41 Q560 42 580 35 Q600 28 620 27 Q640 27 660 35 Q680 44 700 44 Q720 45 740 35 Q760 26 780 25 Q800 25 820 36 Q840 47 860 47 Q880 47 900 35 Q920 24 940 24 Q960 24 980 35 Q1000 46 1020 46 Q1040 46 1060 35 Q1080 25 1100 25 Q1120 25 1140 35 Q1160 46 1180 46 L1200 46" stroke-opacity="0.097"><animate attributeName="stroke-opacity" values="0.097;0.288;0.097" dur="9000ms" begin="-2385ms" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="9000ms" begin="-2385ms" repeatCount="indefinite"/></path>
+<path d="M0 71 Q40 66 60 69 Q80 72 100 74 Q120 77 140 73 Q160 70 180 68 Q200 66 220 69 Q240 73 260 75 Q280 78 300 74 Q320 70 340 67 Q360 64 380 68 Q400 73 420 76 Q440 80 460 75 Q480 70 500 65 Q520 61 540 67 Q560 73 580 78 Q600 84 620 76 Q640 69 660 63 Q680 57 700 65 Q720 74 740 81 Q760 89 780 78 Q800 68 820 59 Q840 51 860 63 Q880 75 900 83 Q920 92 940 80 Q960 68 980 60 Q1000 53 1020 64 Q1040 75 1060 82 Q1080 90 1100 79 Q1120 68 1140 61 Q1160 54 1180 64 L1200 75" stroke-opacity="0.099"><animate attributeName="stroke-opacity" values="0.099;0.294;0.099" dur="9000ms" begin="-2475ms" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="9000ms" begin="-2475ms" repeatCount="indefinite"/></path>
+<path d="M0 109 Q40 112 60 109 Q80 106 100 104 Q120 102 140 105 Q160 109 180 111 Q200 113 220 109 Q240 106 260 103 Q280 101 300 105 Q320 109 340 112 Q360 115 380 110 Q400 106 420 102 Q440 99 460 104 Q480 109 500 113 Q520 117 540 111 Q560 105 580 100 Q600 95 620 102 Q640 110 660 116 Q680 122 700 113 Q720 104 740 97 Q760 90 780 101 Q800 112 820 121 Q840 130 860 116 Q880 103 900 95 Q920 88 940 100 Q960 112 980 119 Q1000 126 1020 115 Q1040 104 1060 96 Q1080 89 1100 100 Q1120 111 1140 118 Q1160 126 1180 115 L1200 104" stroke-opacity="0.102"><animate attributeName="stroke-opacity" values="0.102;0.301;0.102" dur="9000ms" begin="-2601ms" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="9000ms" begin="-2601ms" repeatCount="indefinite"/></path>
+<path d="M0 138 Q40 144 60 146 Q80 149 100 146 Q120 143 140 140 Q160 137 180 140 Q200 144 220 147 Q240 150 260 146 Q280 143 300 139 Q320 136 340 140 Q360 145 380 148 Q400 151 420 146 Q440 142 460 137 Q480 133 500 139 Q520 145 540 150 Q560 155 580 148 Q600 142 620 135 Q640 129 660 137 Q680 146 700 153 Q720 161 740 151 Q760 141 780 131 Q800 122 820 135 Q840 148 860 157 Q880 167 900 153 Q920 140 940 131 Q960 123 980 134 Q1000 146 1020 155 Q1040 164 1060 152 Q1080 141 1100 131 Q1120 122 1140 134 Q1160 146 1180 155 L1200 164" stroke-opacity="0.106"><animate attributeName="stroke-opacity" values="0.106;0.314;0.106" dur="9000ms" begin="-2808ms" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="9000ms" begin="-2808ms" repeatCount="indefinite"/></path>
+<path d="M0 183 Q40 182 60 179 Q80 176 100 176 Q120 177 140 180 Q160 184 180 183 Q200 182 220 178 Q240 175 260 175 Q280 176 300 180 Q320 184 340 183 Q360 183 380 178 Q400 173 420 174 Q440 176 460 181 Q480 187 500 186 Q520 185 540 178 Q560 171 580 172 Q600 173 620 181 Q640 190 660 188 Q680 187 700 176 Q720 166 740 168 Q760 170 780 182 Q800 194 820 191 Q840 189 860 176 Q880 164 900 167 Q920 170 940 182 Q960 194 980 191 Q1000 189 1020 176 Q1040 164 1060 166 Q1080 169 1100 183 Q1120 197 1140 193 Q1160 190 1180 177 L1200 164" stroke-opacity="0.108"><animate attributeName="stroke-opacity" values="0.108;0.320;0.108" dur="9000ms" begin="-2907ms" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="9000ms" begin="-2907ms" repeatCount="indefinite"/></path>
+<path d="M0 212 Q40 213 60 216 Q80 219 100 218 Q120 218 140 214 Q160 211 180 212 Q200 213 220 216 Q240 220 260 219 Q280 219 300 215 Q320 211 340 211 Q360 212 380 217 Q400 222 420 220 Q440 219 460 213 Q480 208 500 209 Q520 211 540 218 Q560 225 580 223 Q600 222 620 212 Q640 203 660 205 Q680 207 700 218 Q720 230 740 227 Q760 225 780 213 Q800 201 820 203 Q840 206 860 218 Q880 230 900 227 Q920 225 940 213 Q960 201 980 203 Q1000 206 1020 219 Q1040 232 1060 231 Q1080 231 1100 214 Q1120 198 1140 201 Q1160 205 1180 218 L1200 232" stroke-opacity="0.111"><animate attributeName="stroke-opacity" values="0.111;0.330;0.111" dur="9000ms" begin="-3060ms" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="9000ms" begin="-3060ms" repeatCount="indefinite"/></path>
+<path d="M0 251 Q40 246 60 249 Q80 252 100 255 Q120 258 140 254 Q160 251 180 248 Q200 245 220 248 Q240 252 260 255 Q280 259 300 255 Q320 251 340 247 Q360 244 380 248 Q400 253 420 256 Q440 260 460 255 Q480 250 500 244 Q520 239 540 246 Q560 253 580 260 Q600 268 620 258 Q640 249 660 239 Q680 230 700 242 Q720 255 740 264 Q760 274 780 261 Q800 249 820 240 Q840 231 860 242 Q880 254 900 263 Q920 272 940 260 Q960 249 980 239 Q1000 230 1020 242 Q1040 255 1060 266 Q1080 277 1100 262 Q1120 248 1140 238 Q1160 228 1180 241 L1200 255" stroke-opacity="0.110"><animate attributeName="stroke-opacity" values="0.110;0.328;0.110" dur="9000ms" begin="-3024ms" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="9000ms" begin="-3024ms" repeatCount="indefinite"/></path>
+<path d="M0 293 Q40 288 60 285 Q80 282 100 284 Q120 287 140 290 Q160 294 180 291 Q200 288 220 284 Q240 281 260 284 Q280 287 300 291 Q320 295 340 291 Q360 288 380 283 Q400 278 420 282 Q440 287 460 293 Q480 299 500 294 Q520 289 540 281 Q560 274 580 280 Q600 286 620 297 Q640 308 660 298 Q680 289 700 276 Q720 263 740 274 Q760 286 780 298 Q800 310 820 299 Q840 289 860 277 Q880 266 900 276 Q920 286 940 297 Q960 309 980 299 Q1000 289 1020 276 Q1040 264 1060 274 Q1080 285 1100 298 Q1120 312 1140 300 Q1160 289 1180 276 L1200 263" stroke-opacity="0.109"><animate attributeName="stroke-opacity" values="0.109;0.326;0.109" dur="9000ms" begin="-2997ms" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="9000ms" begin="-2997ms" repeatCount="indefinite"/></path>
+<path d="M0 325 Q40 328 60 325 Q80 322 100 320 Q120 319 140 322 Q160 326 180 327 Q200 328 220 324 Q240 321 260 319 Q280 318 300 322 Q320 326 340 328 Q360 330 380 325 Q400 320 420 318 Q440 316 460 322 Q480 328 500 330 Q520 333 540 326 Q560 319 580 314 Q600 310 620 320 Q640 330 660 335 Q680 341 700 328 Q720 315 740 310 Q760 306 780 318 Q800 331 820 335 Q840 339 860 327 Q880 316 900 312 Q920 308 940 319 Q960 331 980 335 Q1000 340 1020 328 Q1040 316 1060 311 Q1080 306 1100 318 Q1120 331 1140 336 Q1160 341 1180 328 L1200 316" stroke-opacity="0.109"><animate attributeName="stroke-opacity" values="0.109;0.324;0.109" dur="9000ms" begin="-2961ms" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="9000ms" begin="-2961ms" repeatCount="indefinite"/></path>
+</g>
+<rect x="0" y="0" width="740" height="360" fill="#081020" fill-opacity="0.60"/>
+<text x="72" y="82" fill="#80e7ff" font-family="'Inter','Segoe UI',system-ui,-apple-system,sans-serif" font-size="16" font-weight="700" letter-spacing="3.2">CREATOR&#160;&#160;·&#160;&#160;SYSTEMS THINKER&#160;&#160;·&#160;&#160;FOUNDER</text>
+<text x="68" y="154" fill="#ffffff" font-family="'Inter','Segoe UI',system-ui,-apple-system,sans-serif" font-size="58" font-weight="780" letter-spacing="-1.8">JOSH PHILBRICK</text>
+<text x="72" y="205" fill="#c7d4ee" font-family="'Inter','Segoe UI',system-ui,-apple-system,sans-serif" font-size="22" font-weight="430">Founder of Coherence Energy Labs</text>
+<text x="72" y="258" fill="#eef5ff" font-family="'Inter','Segoe UI',system-ui,-apple-system,sans-serif" font-size="23" font-weight="560">Building systems for questions most people</text>
+<text x="72" y="290" fill="#eef5ff" font-family="'Inter','Segoe UI',system-ui,-apple-system,sans-serif" font-size="23" font-weight="560">are told are too large to ask.</text>
+<text x="72" y="330" fill="#7f90ad" font-family="'Inter','Segoe UI',system-ui,-apple-system,sans-serif" font-size="14" font-weight="500" letter-spacing="1.4">PHYSICS&#160;&#160;·&#160;&#160;COMPUTATION&#160;&#160;·&#160;&#160;BIOLOGY&#160;&#160;·&#160;&#160;INTELLIGENCE</text>
+<text x="1180" y="346" text-anchor="end" font-family="'SFMono-Regular','Cascadia Code',Consolas,monospace" font-size="11" fill="#46607A">(D·L + κ²I)τ = s · exact integers · sha256(field) = a5839e753e76… · re-derive: tools/render_banner.py</text>
 </svg>

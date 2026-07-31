@@ -1,0 +1,20 @@
+name: banner-re-derives
+
+# The org banner is a re-executable figure: the solution of (D·L + κ²I)τ = s
+# in exact integer arithmetic. This gate re-derives it from source and fails
+# if the committed artifact differs by a single byte. A claim is only as
+# strong as the artifact behind it — including this one.
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * 1"
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Re-derive banner and byte-compare
+        run: python3 tools/render_banner.py --check

@@ -2,6 +2,12 @@
 
 <img src="https://raw.githubusercontent.com/Jphilbrick10/Jphilbrick10/main/assets/profile-banner.svg" alt="Josh Philbrick — creator, systems thinker, and founder of Coherence Energy Labs" width="100%">
 
+[![banner re-derives](https://github.com/Jphilbrick10/Jphilbrick10/actions/workflows/verify-banner.yml/badge.svg)](https://github.com/Jphilbrick10/Jphilbrick10/actions/workflows/verify-banner.yml)
+
+*The waves above are computed, not drawn — their amplitudes are the solution of the coherence field equation `(D·L + κ²I)τ = s`
+in exact integer arithmetic, rendered by [a program in this repository](tools/render_banner.py). CI re-derives the banner on every push;
+one byte of drift fails the build. Its [receipt](assets/RECEIPT.json) is committed beside it and printed on the artifact itself.*
+
 <br>
 
 [**Coherence Energy Labs**](https://coherenceenergylabs.com) &nbsp;·&nbsp; [**Research & Engineering**](https://github.com/coherence-energy-labs) &nbsp;·&nbsp; [**Email**](mailto:josh@coherenceenergylabs.com)
@@ -65,11 +71,11 @@ The company’s work spans verifiable computation, programming languages, AI, qu
 
 ### Quantum-code discovery
 
-[`qcode-discovery`](https://github.com/Jphilbrick10/qcode-discovery) uses LLM-guided evolutionary search to discover and test bivariate bicycle and perturbed bivariate bicycle quantum LDPC codes.
+[`qcode-discovery`](https://github.com/coherence-energy-labs/qcode-discovery) uses LLM-guided evolutionary search to discover and test bivariate bicycle and perturbed bivariate bicycle quantum LDPC codes.
 
 The public work reports **465 distinct discovered codes**, exact MILP verification for key results, a documented rate-distance tradeoff, and cases where heuristic decoding substantially overestimated code distance.
 
-[Explore the repository →](https://github.com/Jphilbrick10/qcode-discovery)
+[Explore the repository →](https://github.com/coherence-energy-labs/qcode-discovery)
 
 ## What I am trying to build
 
