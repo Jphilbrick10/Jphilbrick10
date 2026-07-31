@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/Jphilbrick10/Jphilbrick10/main/assets/profile-banner.svg" alt="Josh Philbrick — creator, systems thinker, and founder of Coherence Energy Labs" width="100%">
+<img src="https://raw.githubusercontent.com/Jphilbrick10/Jphilbrick10/main/assets/banner.svg" alt="Josh Philbrick — creator, systems thinker, and founder of Coherence Energy Labs" width="100%">
 
 [![banner re-derives](https://github.com/Jphilbrick10/Jphilbrick10/actions/workflows/verify-banner.yml/badge.svg)](https://github.com/Jphilbrick10/Jphilbrick10/actions/workflows/verify-banner.yml)
 

@@ -1,6 +1,6 @@
 {
   "arithmetic": "exact integer (python int), no floats in field or geometry",
-  "artifact": "profile banner (animated SVG, wave-ribbon rendering)",
+  "artifact": "profile banner v3 (animated SVG: aurora bands + rolling ribbons + photons)",
   "equation": "(D*L + kappa^2*I) tau = s",
   "params": {
     "COLS": 40,
@@ -8,11 +8,12 @@
     "H": 360,
     "ROWS": 12,
     "W": 1200,
-    "base_amp": 6,
-    "field_amp": 34,
+    "base_amp": 8,
+    "field_amp": 40,
     "iters": 300,
     "kappa2_milli": 45,
-    "n_waves": 9,
+    "n_bands": 4,
+    "n_waves": 7,
     "pulse_ms": 9000,
     "seed": "0x1a0501",
     "source_strength": "0x100000000000",
@@ -34,5 +35,5 @@
   },
   "re_derive": "python tools/render_banner.py --check",
   "sha256_field": "a5839e753e76481935519d8812719d997735c915a8c5e653341d1f991caba6f7",
-  "sha256_svg": "58e0f614a6826e588627c1a3b83a6a21331606e9104e1f9ddd55879d71489547"
+  "sha256_svg": "840e7fe5646cf64b88416942e433e11dcaa1e8e205fd61a049b710ad0ac4af43"
 }
