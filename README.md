@@ -8,6 +8,20 @@
 in exact integer arithmetic, rendered by [a program in this repository](tools/render_banner.py). CI re-derives the banner on every push;
 one byte of drift fails the build. Its [receipt](assets/RECEIPT.json) is committed beside it and printed on the artifact itself.*
 
+### Catch the forgery
+
+One of these two banners was rendered from the true field. The other is a forgery — same equation, same code, but one field source quietly moved. They are visual cousins; the mathematics is not fooled:
+
+<img src="https://raw.githubusercontent.com/Jphilbrick10/Jphilbrick10/main/assets/banner.svg" width="49.7%"><img src="https://raw.githubusercontent.com/Jphilbrick10/Jphilbrick10/main/assets/banner-challenge.svg" width="49.7%">
+
+```bash
+git clone https://github.com/Jphilbrick10/Jphilbrick10 && cd Jphilbrick10
+python tools/render_banner.py --verify assets/banner.svg            # one of these says VERIFIED
+python tools/render_banner.py --verify assets/banner-challenge.svg  # the other says FORGED
+```
+
+*If you can tell by eye which is which, I would genuinely like to hear from you. The point is that you should not have to.*
+
 <br>
 
 [**Coherence Energy Labs**](https://coherenceenergylabs.com) &nbsp;·&nbsp; [**Research & Engineering**](https://github.com/coherence-energy-labs) &nbsp;·&nbsp; [**Email**](mailto:josh@coherenceenergylabs.com)

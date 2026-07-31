@@ -265,8 +265,37 @@ def render(bright, field_sha):
     return "\n".join(out).encode("utf-8")
 
 
+FORGED_SOURCES = [(0.70, 0.35), (0.90, 0.62), (0.55, 0.78)]  # third source nudged
+
+
 def main():
+    global SOURCES
     check = "--check" in sys.argv
+    if "--verify" in sys.argv:
+        # Adversarial mode: is the given SVG the one the TRUE field produces?
+        target = sys.argv[sys.argv.index("--verify") + 1]
+        tau, bright = solve_field()
+        field_sha = hashlib.sha256(",".join(map(str, tau)).encode()).hexdigest()
+        truth = render(bright, field_sha)
+        given = open(target, "rb").read()
+        if given == truth:
+            print(f"VERIFIED: {target} is byte-identical to the true field's rendering.")
+            sys.exit(0)
+        print(f"FORGED or ALTERED: {target} does not re-derive from the true field "
+              f"(expected sha256 {hashlib.sha256(truth).hexdigest()[:16]}..., "
+              f"got {hashlib.sha256(given).hexdigest()[:16]}...).")
+        sys.exit(1)
+    if "--forge" in sys.argv:
+        # Produce the challenge twin: same everything, one field source moved.
+        SOURCES = FORGED_SOURCES
+        tau, bright = solve_field()
+        field_sha = hashlib.sha256(",".join(map(str, tau)).encode()).hexdigest()
+        svg = render(bright, field_sha)
+        p = os.path.join(ASSETS, "banner-challenge.svg")
+        with open(p, "wb") as f:
+            f.write(svg)
+        print(f"wrote {os.path.relpath(p, ROOT)} (forged field, source 3 nudged)")
+        return
     tau, bright = solve_field()
     field_sha = hashlib.sha256(",".join(map(str, tau)).encode()).hexdigest()
     svg = render(bright, field_sha)
