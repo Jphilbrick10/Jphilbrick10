@@ -10,14 +10,14 @@ one byte of drift fails the build. Its [receipt](assets/RECEIPT.json) is committ
 
 ### Catch the forgery
 
-One of these two banners was rendered from the true field. The other is a forgery — same equation, same code, but one field source quietly moved. They are visual cousins; the mathematics is not fooled:
+Two coherence fingerprints — the same field equation solved on a polar lattice, rendered as counter-rotating interference irises. One is computed from the true field. In the other, a single source was quietly moved. They are twins to the eye; the mathematics is not fooled:
 
-<img src="https://raw.githubusercontent.com/Jphilbrick10/Jphilbrick10/main/assets/banner.svg" width="49.7%"><img src="https://raw.githubusercontent.com/Jphilbrick10/Jphilbrick10/main/assets/banner-challenge.svg" width="49.7%">
+<img src="https://raw.githubusercontent.com/Jphilbrick10/Jphilbrick10/main/assets/challenge-a.svg" width="49.7%"><img src="https://raw.githubusercontent.com/Jphilbrick10/Jphilbrick10/main/assets/challenge-b.svg" width="49.7%">
 
 ```bash
 git clone https://github.com/Jphilbrick10/Jphilbrick10 && cd Jphilbrick10
-python tools/render_banner.py --verify assets/banner.svg            # one of these says VERIFIED
-python tools/render_banner.py --verify assets/banner-challenge.svg  # the other says FORGED
+python tools/render_challenge.py --verify assets/challenge-a.svg  # one of these says VERIFIED
+python tools/render_challenge.py --verify assets/challenge-b.svg  # the other says FORGED
 ```
 
 *If you can tell by eye which is which, I would genuinely like to hear from you. The point is that you should not have to.*
