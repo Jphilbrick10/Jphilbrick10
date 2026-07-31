@@ -34,5 +34,5 @@
   },
   "re_derive": "python tools/render_banner.py --check",
   "sha256_field": "a5839e753e76481935519d8812719d997735c915a8c5e653341d1f991caba6f7",
-  "sha256_svg": "360b552d811ac0c76dee73dd3dc54a7b7fedf594a8f13f36f54cecf83a5903d2"
+  "sha256_svg": "58e0f614a6826e588627c1a3b83a6a21331606e9104e1f9ddd55879d71489547"
 }

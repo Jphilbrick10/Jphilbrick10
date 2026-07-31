@@ -85,17 +85,16 @@ def field_at(bright, x_milli, y_milli):
     return bright[r * COLS + c]
 
 
-def wave_path(bright, k, rnd):
-    """One ribbon: smoothed through integer sample points; amplitude = field."""
+def wave_path(bright, k, base_phase, phase_shift):
+    """One ribbon at a given phase: integer samples, amplitude = the field."""
     y0 = (k + 1) * H // (N_WAVES + 1)
-    phase = next(rnd) % 1000
     pts = []
     for i in range(WAVE_PTS + 1):
         x = i * W // WAVE_PTS
         b = field_at(bright, x * 1000 // W, y0 * 1000 // H)
         amp = BASE_AMP + b * FIELD_AMP // 1000
         # deterministic integer "sine": triangle wave folded smooth by Q-curves
-        t = (i * 250 + phase + k * 137) % 1000          # position in cycle
+        t = (i * 250 + base_phase + phase_shift + k * 137) % 1000
         tri = (2 * t if t < 500 else 2 * (1000 - t)) - 500   # -500..500
         y = y0 + amp * tri // 500
         pts.append((x, y))
@@ -127,22 +126,42 @@ def render(bright, field_sha):
                f'<stop offset="1" stop-color="{GRAD[2]}"/></linearGradient>')
     out.append('</defs>')
     out.append(f'<rect width="{W}" height="{H}" fill="{BG}"/>')
-    # --- the field, as breathing wave ribbons
-    out.append('<g fill="none" stroke="url(#w)" stroke-width="2" stroke-linecap="round">')
+    # --- the field, as ROLLING wave ribbons (d-morph keyframes = true travel)
+    out.append('<g fill="none" stroke="url(#w)" stroke-linecap="round">')
+    particles = []
     for k in range(N_WAVES):
-        d, mean_b = wave_path(bright, k, rnd)
-        lo = 50 + mean_b * 180 // 1000            # opacity floor  .050...230
-        hi = 140 + mean_b * 560 // 1000           # opacity peak   .140...700
-        begin = mean_b * PULSE_MS // 1000
-        drift = 4 + mean_b * 8 // 1000            # vertical breath, px
+        base_phase = next(rnd) % 1000
+        frames = []
+        mean_b = 0
+        for ph in (0, 250, 500, 750):
+            d, mean_b = wave_path(bright, k, base_phase, ph)
+            frames.append(d)
+        frames.append(frames[0])                   # seamless loop
+        lo = 50 + mean_b * 170 // 1000
+        hi = 150 + mean_b * 600 // 1000
+        # parallax: deep ribbons roll slow and thin, hot ribbons fast and bold
+        dur = 16000 - mean_b * 9000 // 1000        # 16s .. 7s per cycle
+        width_tenths = 14 + mean_b * 18 // 1000    # 1.4 .. 3.2 px
+        begin = (base_phase * dur) // 1000
         out.append(
-            f'<path d="{d}" stroke-opacity="0.{lo:03d}">'
+            f'<path d="{frames[0]}" stroke-opacity="0.{lo:03d}" '
+            f'stroke-width="{width_tenths // 10}.{width_tenths % 10}">'
+            f'<animate attributeName="d" values="{";".join(frames)}" '
+            f'dur="{dur}ms" begin="-{begin}ms" repeatCount="indefinite" calcMode="linear"/>'
             f'<animate attributeName="stroke-opacity" values="0.{lo:03d};0.{hi:03d};0.{lo:03d}" '
-            f'dur="{PULSE_MS}ms" begin="-{begin}ms" repeatCount="indefinite"/>'
-            f'<animateTransform attributeName="transform" type="translate" '
-            f'values="0 0; 0 -{drift}; 0 0" dur="{PULSE_MS}ms" begin="-{begin}ms" '
-            f'repeatCount="indefinite"/></path>')
+            f'dur="{PULSE_MS}ms" begin="-{begin}ms" repeatCount="indefinite"/></path>')
+        # a photon riding every second ribbon, phase-locked to the field
+        if k % 2 == 1:
+            r_t = 12 + mean_b * 14 // 1000
+            pdur = 22000 - mean_b * 10000 // 1000
+            particles.append(
+                f'<circle r="{r_t // 10}.{r_t % 10}" fill="{GRAD[2]}" fill-opacity="0.85">'
+                f'<animateMotion path="{frames[0]}" dur="{pdur}ms" begin="-{(base_phase * pdur) // 1000}ms" '
+                f'repeatCount="indefinite" rotate="none"/>'
+                f'<animate attributeName="fill-opacity" values="0;0.85;0.85;0" keyTimes="0;0.08;0.92;1" '
+                f'dur="{pdur}ms" begin="-{(base_phase * pdur) // 1000}ms" repeatCount="indefinite"/></circle>')
     out.append('</g>')
+    out.append('<g>' + "".join(particles) + '</g>')
     # readability scrim behind the left text stack
     out.append(f'<rect x="0" y="0" width="740" height="{H}" fill="{BG}" fill-opacity="0.60"/>')
     # --- the original text stack, same layout as the hand-drawn banner
