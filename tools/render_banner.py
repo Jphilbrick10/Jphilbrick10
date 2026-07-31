@@ -158,8 +158,32 @@ def render(bright, field_sha):
                f'<stop offset="0" stop-color="{BG}" stop-opacity="0.82"/>'
                f'<stop offset="0.72" stop-color="{BG}" stop-opacity="0.55"/>'
                f'<stop offset="1" stop-color="{BG}" stop-opacity="0"/></linearGradient>')
+    out.append(f'<linearGradient id="name" x1="0" y1="0" x2="1" y2="0">'
+               f'<stop offset="0" stop-color="#FFFFFF"/>'
+               f'<stop offset="0.5" stop-color="#BFEFFF">'
+               f'<animate attributeName="offset" values="0.2;0.8;0.2" dur="8000ms" repeatCount="indefinite"/></stop>'
+               f'<stop offset="1" stop-color="#E8FBFF"/></linearGradient>')
+    out.append(f'<linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0">'
+               f'<stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>'
+               f'<stop offset="0.5" stop-color="#CFF4FF" stop-opacity="0.07"/>'
+               f'<stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>')
+    out.append(f'<clipPath id="rc"><rect width="{W}" height="{H}" rx="26" ry="26"/></clipPath>')
     out.append('</defs>')
+    out.append('<g clip-path="url(#rc)">')
     out.append(f'<rect width="{W}" height="{H}" fill="url(#vig)"/>')
+    # deterministic starfield, twinkling
+    srnd = lcg(SEED ^ 0x57A125)
+    stars = []
+    for _ in range(46):
+        sx = next(srnd) % W
+        sy = next(srnd) % H
+        so = 200 + next(srnd) % 500
+        sd = 2600 + next(srnd) % 5200
+        sb = next(srnd) % sd
+        stars.append(f'<circle cx="{sx}" cy="{sy}" r="1" fill="#BFE8F5" opacity="0.{so:03d}">'
+                     f'<animate attributeName="opacity" values="0.{so:03d};0.050;0.{so:03d}" '
+                     f'dur="{sd}ms" begin="-{sb}ms" repeatCount="indefinite"/></circle>')
+    out.append('<g>' + "".join(stars) + '</g>')
     # --- soft aurora bands (filled, blurred, morphing)
     out.append('<g filter="url(#soft)">')
     for k in range(N_BANDS):
@@ -172,9 +196,10 @@ def render(bright, field_sha):
                    f'<animate attributeName="d" values="{";".join(frames)}" dur="{dur}ms" '
                    f'begin="-{(base_phase * dur) // 1000}ms" repeatCount="indefinite" calcMode="linear"/></path>')
     out.append('</g>')
-    # --- crisp rolling ribbons, parallax from the field
+    # --- neon under-glow + crisp rolling ribbons, parallax from the field
     out.append('<g fill="none" stroke="url(#w)" stroke-linecap="round">')
     particles = []
+    neon = []
     for k in range(N_WAVES):
         y0 = (k + 1) * H // (N_WAVES + 1)
         base_phase = next(rnd) % 1000
@@ -185,6 +210,11 @@ def render(bright, field_sha):
         dur = 15000 - mb * 8500 // 1000
         width_tenths = 12 + mb * 20 // 1000
         begin = (base_phase * dur) // 1000
+        neon.append(
+            f'<path d="{frames[0]}" stroke-opacity="0.{(lo // 3):03d}" '
+            f'stroke-width="{(width_tenths + 46) // 10}.{(width_tenths + 46) % 10}" filter="url(#glow)">'
+            f'<animate attributeName="d" values="{";".join(frames)}" '
+            f'dur="{dur}ms" begin="-{begin}ms" repeatCount="indefinite" calcMode="linear"/></path>')
         out.append(
             f'<path d="{frames[0]}" stroke-opacity="0.{lo:03d}" '
             f'stroke-width="{width_tenths // 10}.{width_tenths % 10}">'
@@ -205,13 +235,19 @@ def render(bright, field_sha):
                 f'<animate attributeName="fill-opacity" values="0;0.9;0.9;0" keyTimes="0;0.07;0.93;1" '
                 f'dur="{pdur}ms" begin="-{pb}ms" repeatCount="indefinite"/></circle></g>')
     out.append('</g>')
+    out.append('<g fill="none" stroke="url(#w)" stroke-linecap="round">' + "".join(neon) + '</g>')
     out.append('<g>' + "".join(particles) + '</g>')
     # readability scrim: gradient fade, no hard seam
     out.append(f'<rect x="0" y="0" width="860" height="{H}" fill="url(#scrim)"/>')
+    # passing light sheen, every 9s
+    out.append(f'<rect x="-420" y="-40" width="340" height="{H + 80}" fill="url(#sheen)" '
+               f'transform="skewX(-18)">'
+               f'<animateTransform attributeName="transform" type="translate" additive="sum" '
+               f'values="0 0; {W + 900} 0" dur="9000ms" repeatCount="indefinite"/></rect>')
     # --- the text stack, same layout as the original banner
     out.append(f'<text x="72" y="82" fill="#80e7ff" font-family={fonts!r} font-size="16" '
                f'font-weight="700" letter-spacing="3.2">CREATOR&#160;&#160;·&#160;&#160;SYSTEMS THINKER&#160;&#160;·&#160;&#160;FOUNDER</text>')
-    out.append(f'<text x="68" y="154" fill="#ffffff" font-family={fonts!r} font-size="58" '
+    out.append(f'<text x="68" y="154" fill="url(#name)" font-family={fonts!r} font-size="58" '
                f'font-weight="780" letter-spacing="-1.8">JOSH PHILBRICK</text>')
     out.append(f'<text x="72" y="205" fill="#c7d4ee" font-family={fonts!r} font-size="22" '
                f'font-weight="430">Founder of Coherence Energy Labs</text>')
@@ -224,6 +260,7 @@ def render(bright, field_sha):
     out.append(f'<text x="{W - 20}" y="{H - 14}" text-anchor="end" font-family={mono!r} '
                f'font-size="11" fill="{META}">(D·L + κ²I)τ = s · exact integers · '
                f'sha256(field) = {field_sha[:12]}… · re-derive: tools/render_banner.py</text>')
+    out.append('</g>')
     out.append('</svg>')
     return "\n".join(out).encode("utf-8")
 
